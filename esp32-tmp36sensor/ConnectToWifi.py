@@ -1,8 +1,8 @@
 def connect():
     import network
     
-    SSID = "Guest_Wifi"
-    PASSWORD = "P!ssword123"
+    SSID = ""
+    PASSWORD = ""
     
     station = network.WLAN(network.STA_IF)
     
