@@ -1,9 +1,5 @@
-def connect():
+def connect(ssid: str, password: str):
     import network
-    
-    SSID = ""
-    PASSWORD = ""
-    
     station = network.WLAN(network.STA_IF)
     
     if station.isconnected() == True:
@@ -11,7 +7,7 @@ def connect():
         return
     
     station.active(True)
-    station.connect(SSID, PASSWORD)
+    station.connect(ssid, password)
     
     while station.isconnected() == False:
         pass
