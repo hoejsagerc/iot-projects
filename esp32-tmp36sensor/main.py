@@ -50,12 +50,22 @@ class TempObject:
             temp = 0.0
         return temp
 
+    def blink_led(self):
+        try:
+            led = Pin(2, Pin.OUT)
+            led.value(1)
+            time.sleep(0.2)
+            led.value(0)
+        except Exception as e:
+            print(f"Failed executing LED - {e}")
+
     def collect_data(self):
         self.read_database()
         self.check_count()
         self.temp_list[self.count] = self.read_data()
         self.count += 1
         self.write_database()
+        self.blink_led()
         avg_temp = sum(self.temp_list) / len(self.temp_list)
         return avg_temp
 
